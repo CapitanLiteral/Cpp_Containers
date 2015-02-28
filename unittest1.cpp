@@ -2,7 +2,6 @@
 #include "CppUnitTest.h"
 #include "..\MyLibrary\Point2D.h"
 #include "..\MyLibrary\Point2D.cpp"
-//#include "math.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -11,7 +10,8 @@ namespace UnitTest1
 	TEST_CLASS(UnitTest1)
 	{
 	public:
-		
+
+
 		TEST_METHOD(isZero)
 		{
 			Point2D point;
@@ -19,7 +19,7 @@ namespace UnitTest1
 			point.setZero();
 			Assert::IsTrue(point.isxyZero());
 
-
+			 
 		}
 		TEST_METHOD(Sum)
 		{
@@ -37,7 +37,7 @@ namespace UnitTest1
 			Assert::AreEqual(c.x, 5.0f);
 			Assert::AreEqual(c.y, 5.0f);
 
-
+			 
 		}
 		TEST_METHOD(EqualSum)
 		{
@@ -54,7 +54,7 @@ namespace UnitTest1
 			Assert::AreEqual(a.x, 5.0f);
 			Assert::AreEqual(a.y, 5.0f);
 
-
+			 
 		}
 		TEST_METHOD(Decrease)
 		{
@@ -66,13 +66,13 @@ namespace UnitTest1
 			a.y = 3;
 			b.x = 3;
 			b.y = 2;
-		
+
 			c = a - b;
-			
+
 			Assert::AreEqual(c.x, -1.0f);
 			Assert::AreEqual(c.y, 1.0f);
 
-
+			 
 		}
 		TEST_METHOD(EqualDecrease)
 		{
@@ -89,7 +89,7 @@ namespace UnitTest1
 			Assert::AreEqual(a.x, -1.0f);
 			Assert::AreEqual(a.y, 1.0f);
 
-
+			 
 		}
 		TEST_METHOD(Assignation)
 		{
@@ -105,7 +105,7 @@ namespace UnitTest1
 			Assert::AreEqual(b.x, 2.0f);
 			Assert::AreEqual(b.y, 3.0f);
 
-
+			 
 		}
 		TEST_METHOD(EqualEqual)
 		{
@@ -119,7 +119,7 @@ namespace UnitTest1
 
 			Assert::IsTrue(a == b);
 
-
+			 
 		}
 		TEST_METHOD(Different)
 		{
@@ -134,7 +134,7 @@ namespace UnitTest1
 			Assert::IsTrue(a != b);
 		}
 
-		TEST_METHOD(SumWithoutNumbers)
+		TEST_METHOD(Sum1)
 		{
 			Point2D a;
 			Point2D b;
@@ -143,33 +143,6 @@ namespace UnitTest1
 
 			Assert::AreEqual(a.x, 0.0f);
 			Assert::AreEqual(a.y, 0.0f);
-		}
-
-		TEST_METHOD(Distance1)
-		{
-			Point2D a(1, 0);
-			Point2D b(0, 0);
-
-			Assert::AreEqual(a.distanceTo(b), 1.0f);
-
-
-		}
-		TEST_METHOD(Distance2)
-		{
-			Point2D a(5, 2);
-			Point2D b(1, 3);
-			float d = a.distanceTo(b);
-			d = d * powf(10.0f, 4.0f);
-			d = truncf(d);
-
-			Assert::AreEqual(d, 41231.0f);
-
-
-		}
-
-		TEST_METHOD(String)
-		{
-			
 		}
 	};
 }
