@@ -1,6 +1,9 @@
+#include "Math.h"
 #include "String.h"
+#include "Point2D.h"
 #include "Log.h"
 #include <stdio.h>
+
 
 /*void mes(int a)
 {
@@ -51,13 +54,30 @@ int main() {
 
 	strlen(p2);
 	strcpy(p, p2);*/
-	String s("hola");
+
+	Point2D p1(5, 2);
+	Point2D p2(1, 3);
+	Point2D p3;
+	p3 = p1 - p2;
+
+	float d = p1.distanceTo(p2);
+
+	d = d * powf(10.0f, 4.0f);
+	d = truncf(d);
+
+	Log::log("D: %f", d);
+
+	Log::log("D2: %d", p1.distanceTo(p2) == 1.0f);
+
+
+
+/*	String s("hola");
 	String a;
 	String sa(s);
 	Log::log("String: %s", s.getString());
 	Log::log("String: %s", a.getString());
-	Log::log("String: %s", sa.getString());
-	s = "hola";
+	Log::log("String: %s", sa.getString());*/
+//	s = "hola";
 
 
 } ///:~
