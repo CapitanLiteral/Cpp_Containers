@@ -7,73 +7,23 @@ class Point2D
 		float x, y;
 	public:
 	
+		Point2D();
+		Point2D(float, float);
 
-		void setZero()
-		{
-			x = y = 0.0f;
-		}
-		bool isxyZero() const
-		{
-			return x == 0 && y == 0;
-		}
-		void negate()
-		{
-			x = -x;
-			y = -y;
-		}
+		void setZero();
+		void negate();
 
-		Point2D operator+ (const Point2D& p) const
-		{
-			Point2D tmp;
-			tmp.x = x + p.x;
-			tmp.y = y + p.y;
+		bool isxyZero() const;
 
-			return tmp;
-		}
+		float distanceTo(const Point2D&) const;
 
-		Point2D operator- (const Point2D& p) const
-		{
-			Point2D tmp;
-			tmp.x = x - p.x;
-			tmp.y = y - p.y;
-
-			return tmp;
-		}
-
-		Point2D operator+= (const Point2D& p)
-		{
-			x += p.x;
-			y += p.y;
-
-			return (*this);
-		}
-
-		Point2D operator-= (const Point2D& p)
-		{
-			x -= p.x;
-			y -= p.y;
-
-			return (*this);
-		}
-		
-		Point2D operator= (const Point2D& p)
-		{
-			x = p.x;
-			y = p.y;
-
-			return (*this);
-		}
-
-		bool operator== (const Point2D& p) const
-		{
-			return p.x == x && p.y == y;
-		}
-		
-		bool operator!= (const Point2D& p) const
-		{
-			return p.x != x || p.y != y;
-		}
-
+		const Point2D& operator+ (const Point2D&) const;
+		const Point2D& operator- (const Point2D&) const;
+		const Point2D& operator+= (const Point2D&);
+		const Point2D& operator-= (const Point2D&);
+		const Point2D& operator= (const Point2D);
+		bool operator== (const Point2D&) const;		
+		bool operator!= (const Point2D&) const;
 		
 
 	private:
