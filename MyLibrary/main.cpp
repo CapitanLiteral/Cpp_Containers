@@ -55,31 +55,14 @@ int main() {
 	strlen(p2);
 	strcpy(p, p2);*/
 
-	Point2D p1(5, 2);
-	Point2D p2(1, 3);
-	Point2D p3;
-	p3 = p1 - p2;
+	String s1("hola");
+	String s2(NULL);
 
-	float d = p1.distanceTo(p2);
+	bool b1;
 
-	d = d * powf(10.0f, 4.0f);
-	d = truncf(d);
+	b1 = s2 == NULL;
 
-	Log::log("D: %f", d);
-
-	Log::log("D2: %d", p1.distanceTo(p2) == 1.0f);
-
-
-
-/*	String s("hola");
-	String a;
-	String sa(s);
-	Log::log("String: %s", s.getString());
-	Log::log("String: %s", a.getString());
-	Log::log("String: %s", sa.getString());*/
-//	s = "hola";
-
-
+	Log::log("%d", b1);
 } ///:~
 
 
