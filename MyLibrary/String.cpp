@@ -5,15 +5,14 @@
 
 String::String()
 {
-	length = 1;
-	string = new char[length];
-	string[0] = '\0';
+	alloc(1);
+	clear();
 }
 
 String::String(const char* _string, ...)
 {
-	length = 0;
-	if (_string != NULL)
+	//length = 0;
+	if (_string != NULL && _string != "")
 	{
 		static char buff1[4096];
 		va_list args;
@@ -24,28 +23,94 @@ String::String(const char* _string, ...)
 
 		if (res > 0)
 		{
-			length = res + 1;
-			string = new char[length];
-			strcpy_s(string, length, buff1);
+			alloc(res + 1);
+			strcpy_s(string, size, buff1);
 		}
+	}
+	else
+	{
+		alloc(1);
+		clear();
 	}
 }
 
 String::String(const String& _string)
 {
-	length = _string.getLenght();
-	string = new char[length];
-	strcpy_s(string, length, _string.getString());
+	if (&_string != NULL)
+	{
+		alloc(_string.length());
+		strcpy_s(string, size, _string.getString());
+	}
+	else
+	{
+		alloc(1);
+		clear();
+	}
+}
+
+String::~String()
+{
+	delete[]string;
 }
 
 const String& String::operator= (const char* str)
 {
-	length = strlen(str) + 1;
-	delete[] str;
-	str = new char[length];
-	strcpy_s(string, length, str);
+	String s(str);
+	
+	(*this) = s;
+
 	return (*this);
 }
+const String& String::operator= (const String& str)
+{
+	if (&str != NULL)
+	{
+		if (str.length() > size)
+		{
+			delete[] string;
+			alloc(str.length());
+			strcpy_s(string, size, str.getString());
+		}
+		else
+		{
+			size = str.length();
+			strcpy_s(string, size, str.getString());
+		}		
+	}
+
+	return (*this);
+}
+
+bool String::operator== (const char* str)
+{
+	if (str != NULL)
+		return strcmp(str, string) == 0;
+	else
+		return false;
+}
+bool String::operator== (const String& str)
+{
+	if (&str != NULL)
+		return strcmp(str.getString(), string) == 0;
+	else
+		return false;
+
+}
+
+
+/*
+const String& String::operator!= (const char* str){}
+const String& String::operator!= (const String& str){}
+const String& String::operator+= (const char* str){}
+const String& String::operator+= (const String& str){}*/
+
+
+void String::alloc(const int _size)
+{
+	size = _size;
+	string = new char[_size];
+}
+
 /*
 const String& String::operator= (const String& str)
 {
