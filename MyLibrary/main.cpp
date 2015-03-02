@@ -21,8 +21,8 @@ int main()
 	Log::log("%d", -a);
 
 	
-}*/
-
+}
+*/
 
 int* f(int* x) {
 	(*x)++;
@@ -59,9 +59,16 @@ int main() {
 	String s1 = NULL;
 
 	s2 = s1.getString();
-
+	
 	int a = s2.length();
 	int b = s1.length();
+	
+	char* c1 = "hola";
+	int size = 0;
+	/*size = sizeof(c1);
+	Log::log("Size1: %d", size);
+	size = sizeof(c1)/sizeof(char);
+	Log::log("Size2: %d", size);*/
 } ///:~
 
 

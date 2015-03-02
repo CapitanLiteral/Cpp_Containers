@@ -406,22 +406,81 @@ namespace UnitTest1
 		TEST_METHOD(StringOperatorEqualClass01)
 		{
 			String s1 = NULL;
+			String s2;
+
+			Assert::IsTrue(s1 == s2);
+			
 		}
 		TEST_METHOD(StringOperatorEqualClass02)
 		{
+			String s1("hola");
+			String s2("hola");
 
+			Assert::IsTrue(s1 == s2);
 		}
 		TEST_METHOD(StringOperatorEqualClass03)
 		{
+			String s1("");
+			String s2("");
 
+			Assert::IsTrue(s1 == s2);
 		}
 		TEST_METHOD(StringOperatorEqualClass04)
 		{
+			String s1(NULL);
+			String s2("");
 
+			Assert::IsTrue(s1 == s2);
 		}
 		TEST_METHOD(StringOperatorEqualClass05)
 		{
+			String s1 = NULL;
+			String s2("");
 
+			Assert::IsTrue(s1 == s2);
+		}
+		TEST_METHOD(StringOperatorEqualClass06)
+		{
+			String s1("%s%s%f", "hola", "hola", 0.0f);
+			String s2("%s%s%f", "hola", "hola", 0.0f);
+
+			Assert::IsTrue(s1 == s2);
+		}
+		TEST_METHOD(StringOperatorEqualClass07)
+		{
+			String s1 = NULL;
+			String s2 = NULL;
+
+			Assert::IsTrue(s1 == s2);
+		}
+		TEST_METHOD(StringOperatorDiferentChar01)
+		{
+			String s1("hola");
+			String s2;
+
+			Assert::IsTrue(s1 != "holaaaa");
+		}
+		TEST_METHOD(StringOperatorDiferentClass01)
+		{
+			String s1("hola");
+			String s2;
+
+			Assert::IsTrue(s1 != s2);
+		}
+		TEST_METHOD(StringOperatorConcatChar01)
+		{
+			String s1("hola");
+			s1 += "hola";
+
+			Assert::IsTrue(s1 == "holahola");			
+		}
+		TEST_METHOD(StringOperatorConcatClass01)
+		{
+			String s1("hola");
+			String s2("hola");
+			s1 += s2;
+
+			Assert::IsTrue(s1 == "holahola");
 		}
 	};
 }
