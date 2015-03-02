@@ -185,20 +185,20 @@ namespace UnitTest1
 		TEST_METHOD(StringVoidConstructor)
 		{
 			String s;
-			Assert::AreEqual(s.length(), 1);
+			Assert::AreEqual(s.length(), 0);
 			Assert::AreEqual(s.getString(), "\0");	
 		}
 		TEST_METHOD(StringFormatConstructor)
 		{
 			String s("%s%s%s", "param1", "param2", "param3");
 
-			Assert::AreEqual(s.length(), 19);
+			Assert::AreEqual(s.length(), 18);
 			Assert::AreEqual(s.getString(), "param1param2param3");
 		}
 		TEST_METHOD(StringFormatConstructorNULL)
 		{
 			String s(NULL);
-			Assert::AreEqual(s.length(), 1);
+			Assert::AreEqual(s.length(), 0);
 			Assert::AreEqual(s.getString(), "");
 		}
 		TEST_METHOD(StringCopyConstructor)
@@ -206,17 +206,17 @@ namespace UnitTest1
 			String s1("hi");
 			String s2(s1);
 			Assert::AreEqual(s1.length(), s2.length());
-			Assert::AreEqual(s1.length(), 3);
+			Assert::AreEqual(s1.length(), 2);
 			Assert::AreEqual(s1.getString(), s2.getString());
 
 		}
 		TEST_METHOD(StringCopyConstructorNULL)
 		{			
 			String s1(NULL);
-			Assert::AreEqual(s1.length(), 1);
+			Assert::AreEqual(s1.length(), 0);
 			Assert::AreEqual(s1.getString(), "");
 		}
-		TEST_METHOD(StringOperatorAssignationChar1)
+		TEST_METHOD(StringOperatorAssignationChar01)
 		{
 			String s2("");
 			String s1("hola");
@@ -226,7 +226,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationChar2)
+		TEST_METHOD(StringOperatorAssignationChar02)
 		{
 			String s2;
 			String s1("hola");
@@ -236,7 +236,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationChar3)
+		TEST_METHOD(StringOperatorAssignationChar03)
 		{
 			String s2(NULL);
 			String s1("hola");
@@ -245,7 +245,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationChar4)
+		TEST_METHOD(StringOperatorAssignationChar04)
 		{
 			String s2("abcdefghijklm");
 			String s1("hola");
@@ -254,7 +254,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass1)
+		TEST_METHOD(StringOperatorAssignationClass01)
 		{
 			String s1("");
 			String s2("");
@@ -264,7 +264,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass2)
+		TEST_METHOD(StringOperatorAssignationClass02)
 		{
 			String s1;
 			String s2;
@@ -274,7 +274,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass3)
+		TEST_METHOD(StringOperatorAssignationClass03)
 		{
 			String s1("hhhhhh");
 			String s2("");
@@ -284,7 +284,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass4)
+		TEST_METHOD(StringOperatorAssignationClass04)
 		{
 			String s1("");
 			String s2("hhhhhh");
@@ -294,7 +294,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass5)
+		TEST_METHOD(StringOperatorAssignationClass05)
 		{
 			String s1(NULL);
 			String s2(NULL);
@@ -304,7 +304,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass6)
+		TEST_METHOD(StringOperatorAssignationClass06)
 		{
 			String s1(NULL);
 			String s2("aaa");
@@ -314,7 +314,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass7)
+		TEST_METHOD(StringOperatorAssignationClass07)
 		{
 			String s1("aaa");
 			String s2(NULL);
@@ -324,7 +324,7 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorAssignationClass8)
+		TEST_METHOD(StringOperatorAssignationClass08)
 		{
 			String s1("aaa%s%f", "jaja", 0.01f);
 			String s2(NULL);
@@ -334,72 +334,92 @@ namespace UnitTest1
 			Assert::AreEqual(s2.length(), s1.length());
 			Assert::AreEqual(s2.getString(), s1.getString());
 		}
-		TEST_METHOD(StringOperatorEqualChar1)
+		TEST_METHOD(StringOperatorAssignationClass09)
+		{
+			String s1("aaa%s%f", "jaja", 0.01f);
+			String s2 = NULL;
+
+			s2 = s1;
+
+			Assert::AreEqual(s2.length(), s1.length());
+			Assert::AreEqual(s2.getString(), s1.getString());
+		}
+		TEST_METHOD(StringOperatorAssignationClass10)
+		{
+			String s1 = NULL;
+			String s2 = NULL;
+
+			s2 = s1;
+
+			Assert::AreEqual(s2.length(), 0);
+			Assert::AreEqual(s2.getString(), "");
+		}
+		TEST_METHOD(StringOperatorEqualChar01)
 		{
 			String s1;
 
 			Assert::IsTrue(s1 == "");
 		}
-		TEST_METHOD(StringOperatorEqualChar2)
+		TEST_METHOD(StringOperatorEqualChar02)
 		{
 			String s1("hola");
 			
 			Assert::IsTrue(s1 == "hola");
 		}
-		TEST_METHOD(StringOperatorEqualChar3)
+		TEST_METHOD(StringOperatorEqualChar03)
 		{
 			String s1("hola%s", "hola");
 
 			Assert::IsTrue(s1 == "holahola");
 		}
-		TEST_METHOD(StringOperatorEqualChar4)
+		TEST_METHOD(StringOperatorEqualChar04)
 		{
 			String s1("");
 
 			Assert::IsTrue(s1 == "");
 		}
-		TEST_METHOD(StringOperatorEqualChar5)
+		TEST_METHOD(StringOperatorEqualChar05)
 		{
 			String s1("");
 
 			Assert::IsFalse(s1 == NULL);
 		}
-		TEST_METHOD(StringOperatorEqualChar6)
+		TEST_METHOD(StringOperatorEqualChar06)
 		{
 			String s1;
 
 			Assert::IsFalse(s1 == NULL);
 		}
-		TEST_METHOD(StringOperatorEqualChar7)
+		TEST_METHOD(StringOperatorEqualChar07)
 		{
 			String s1(NULL);
 
 			Assert::IsFalse(s1 == NULL);
 		}
-		TEST_METHOD(StringOperatorEqualChar8)
+		TEST_METHOD(StringOperatorEqualChar08)
 		{
 			String s1("hola");
 			s1 = "";
 
 			Assert::IsTrue(s1 == "");
 		}
-		TEST_METHOD(StringOperatorEqualClass1)
+		TEST_METHOD(StringOperatorEqualClass01)
+		{
+			String s1 = NULL;
+		}
+		TEST_METHOD(StringOperatorEqualClass02)
 		{
 
 		}
-		TEST_METHOD(StringOperatorEqualClass2)
+		TEST_METHOD(StringOperatorEqualClass03)
 		{
 
 		}
-		TEST_METHOD(StringOperatorEqualClass3)
+		TEST_METHOD(StringOperatorEqualClass04)
 		{
 
 		}
-		TEST_METHOD(StringOperatorEqualClass4)
-		{
-
-		}
-		TEST_METHOD(StringOperatorEqualClass5)
+		TEST_METHOD(StringOperatorEqualClass05)
 		{
 
 		}

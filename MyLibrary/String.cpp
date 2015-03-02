@@ -38,7 +38,7 @@ String::String(const String& _string)
 {
 	if (&_string != NULL)
 	{
-		alloc(_string.length());
+		alloc(_string.length()+1);
 		strcpy_s(string, size, _string.getString());
 	}
 	else
@@ -63,19 +63,24 @@ const String& String::operator= (const char* str)
 }
 const String& String::operator= (const String& str)
 {
-	if (&str != NULL)
+	if (str.getString() != NULL)
 	{
 		if (str.length() > size)
 		{
 			delete[] string;
-			alloc(str.length());
+			alloc(str.length()+1);
 			strcpy_s(string, size, str.getString());
 		}
 		else
 		{
-			size = str.length();
+			size = str.length()+1;
 			strcpy_s(string, size, str.getString());
 		}		
+	}
+	else
+	{
+		string = "\0";
+		size = 1;
 	}
 
 	return (*this);
@@ -90,7 +95,7 @@ bool String::operator== (const char* str)
 }
 bool String::operator== (const String& str)
 {
-	if (&str != NULL)
+	if (&str != NULL && str.getString() != NULL)
 		return strcmp(str.getString(), string) == 0;
 	else
 		return false;

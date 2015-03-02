@@ -55,14 +55,13 @@ int main() {
 	strlen(p2);
 	strcpy(p, p2);*/
 
-	String s1("hola");
-	String s2(NULL);
+	String s2("sdfsdf");
+	String s1 = NULL;
 
-	bool b1;
+	s2 = s1.getString();
 
-	b1 = s2 == NULL;
-
-	Log::log("%d", b1);
+	int a = s2.length();
+	int b = s1.length();
 } ///:~
 
 

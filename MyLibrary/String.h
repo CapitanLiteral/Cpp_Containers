@@ -26,7 +26,7 @@ class String
 		void clear(){ string[0] = '\0'; }
 
 		const char* getString()const { return string; } 
-		const int length()const { return size; }
+		const int length()const { return size-1; }
 		
 	private:
 		int size;
