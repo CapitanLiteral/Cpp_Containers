@@ -57,7 +57,7 @@ const String& String::operator= (const char* str)
 {
 	String s(str);
 	
-	(*this) = s;
+	(*this) = s; // FAU N DELETEEEEEEEEEEEEE!!!
 
 	return (*this);
 }
@@ -103,12 +103,25 @@ bool String::operator== (const String& str)
 }
 
 
-/*
-const String& String::operator!= (const char* str){}
-const String& String::operator!= (const String& str){}
-const String& String::operator+= (const char* str){}
-const String& String::operator+= (const String& str){}*/
 
+/*const String& String::operator!= (const char* str)
+{
+
+}*/
+/*const String& String::operator!= (const String& str)
+{
+
+}*/
+/*const String& String::operator+= (const char* str)
+{
+
+}*/
+const String& String::operator+= (const String& str)
+{
+
+
+	return (*this);
+}
 
 void String::alloc(const int _size)
 {

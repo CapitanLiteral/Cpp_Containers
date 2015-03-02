@@ -17,7 +17,6 @@ float Point2D::distanceTo(const Point2D& p) const
 	return fabsf(sqrtf(powf((p.x - x), 2) + powf((p.y - y), 2)));
 }
 
-
 void Point2D::setZero()
 {
 	x = y = 0.0f;
