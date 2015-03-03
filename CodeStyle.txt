@@ -1,0 +1,36 @@
+CodeStyle doc for J1 Engine and P2 utilities
+
+Variable names lowerCammelCase: 
+	
+	int myVariable;
+	char* myString[20];
+
+Method names lowerCammelCase: 
+	
+	const int myMethod();
+	char* method();
+
+Class names UpperCamelCase: 
+
+	MyClass
+	Class
+
+File names UpperCamelCase:
+
+	MyFile.h
+	File.cpp
+
+File headers:
+	// ----------------------------------------------------
+	// MyClass.h
+	// Purpose of the module
+	// ----------------------------------------------------
+
+
+
+Bracers:
+	if(true)
+	{
+		something;
+	}
+
