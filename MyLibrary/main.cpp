@@ -41,7 +41,8 @@ int& h() {
 	return x; // Safe, x lives outside this scope
 }
 
-int main() {
+int main() 
+{
 	/*int a = 0;
 	f(&a); // Ugly (but explicit)
 	g(a);  // Clean (but hidden)
@@ -55,20 +56,10 @@ int main() {
 	strlen(p2);
 	strcpy(p, p2);*/
 
-	String s2("sdfsdf");
-	String s1 = NULL;
-
-	s2 = s1.getString();
+	String s1("hola");
+	s1.clear();
 	
-	int a = s2.length();
-	int b = s1.length();
-	
-	char* c1 = "hola";
-	int size = 0;
-	/*size = sizeof(c1);
-	Log::log("Size1: %d", size);
-	size = sizeof(c1)/sizeof(char);
-	Log::log("Size2: %d", size);*/
+	Log::log(s1.getString());
 } ///:~
 
 

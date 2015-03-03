@@ -11,8 +11,8 @@ String::String()
 
 String::String(const char* _string, ...)
 {
-	//length = 0;
-	if (_string != NULL && _string != "")
+	
+	if (_string != NULL && _string[0] != '\0')
 	{
 		static char buff1[4096];
 		va_list args;
@@ -55,11 +55,36 @@ String::~String()
 
 const String& String::operator= (const char* str)
 {
-	String s(str);
 	
-	(*this) = s; // FAU N DELETEEEEEEEEEEEEE!!!
+	if (str != NULL)
+	{
+		int lstr = strlen(str);
+		if (lstr > size)
+		{
+			delete[] string;
+			alloc(lstr + 1);
+			strcpy_s(string, size, str);
+		}
+		else
+		{
+			size = lstr + 1;
+			strcpy_s(string, size, str);
+		}
+	}
+	else
+	{
+		string = "\0";
+		size = 1;
+	}
 
 	return (*this);
+
+
+	/*String s1(str); // si faig això em fa un delete i no entenc molt be que passa encara -------------------------- revisar...
+	(*this) = s1;
+	//(*this) = s; // FA UN DELETEEEEEEEEEEEEE!!!
+
+	return s1;*/
 }
 const String& String::operator= (const String& str)
 {
@@ -102,28 +127,59 @@ bool String::operator== (const String& str)
 
 }
 
-
-
-/*const String& String::operator!= (const char* str)
+bool String::operator!= (const char* str)
 {
+	return !((*this) == str);
+}
 
-}*/
-/*const String& String::operator!= (const String& str)
+bool String::operator!= (const String& str)
 {
+	return !((*this) == str);;
+}
 
-}*/
-/*const String& String::operator+= (const char* str)
+const String& String::operator+= (const char* str)
 {
+	if (str != NULL)
+	{	
+		String tmp;
+		if (string != "")
+			tmp = string;
+		else
+			tmp = "";
+		int tsize = strlen(str) + tmp.length() + 1;
+		if (capacity() <= tsize)
+		{
+			delete[]string;
+			alloc(tsize);
+		}
+		strcpy_s(string, tsize, tmp.getString());
+		strcat_s(string, tsize, str);
+	}
+	else
+	{
 
-}*/
-const String& String::operator+= (const String& str)
-{
-
-
+	}
 	return (*this);
 }
 
-void String::alloc(const int _size)
+const String& String::operator+= (const String& str)
+{
+	if (&str != NULL)
+	{
+		String tmp(string);
+		int tsize = str.length() + tmp.length() + 1;
+		if (capacity() <= tsize)
+		{
+			delete[]string;
+			alloc(tsize);
+		}
+		strcpy_s(string, tsize, tmp.getString());
+		strcat_s(string, tsize, str.getString());
+	}
+	return (*this);
+}
+
+void String::alloc(const unsigned int _size)
 {
 	size = _size;
 	string = new char[_size];
