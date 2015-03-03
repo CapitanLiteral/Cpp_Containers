@@ -5,7 +5,7 @@
 
 #ifndef Point2D_H
 #define Point2D_H
-
+//template <class TYPE>
 class Point2D
 {
 	public:
@@ -26,7 +26,7 @@ class Point2D
 		const Point2D& operator- (const Point2D&) const;
 		const Point2D& operator+= (const Point2D&);
 		const Point2D& operator-= (const Point2D&);
-		const Point2D& operator= (const Point2D);
+		//const Point2D& operator= (const Point2D);
 		bool operator== (const Point2D&) const;		
 		bool operator!= (const Point2D&) const;
 		

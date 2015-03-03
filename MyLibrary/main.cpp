@@ -3,7 +3,7 @@
 #include "Point2D.h"
 #include "Log.h"
 #include <stdio.h>
-
+#include "Swap.h"
 
 /*void mes(int a)
 {
@@ -23,6 +23,9 @@ int main()
 	
 }
 */
+
+
+
 
 int* f(int* x) {
 	(*x)++;
@@ -55,15 +58,17 @@ int main()
 
 	strlen(p2);
 	strcpy(p, p2);*/
-	String *s = NULL;
-	String s1("hola");
-
-	s1 == *s;
-
+	Point2D a(0, 0);
+	Point2D b(1,1);
+	a = b;
+	Log::log("%f%f", a.x, a.y);
 	/*String s1("hola");
 	s1.clear();*/
-	
-	Log::log(s1.getString());
+	int a1 = 5;
+	int b2 = 10;
+	Log::log("%d%d", a1, b2);
+	swap(a1, b2);
+	Log::log("%d%d", a1, b2);
 } ///:~
 
 

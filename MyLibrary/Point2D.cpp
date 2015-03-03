@@ -64,13 +64,13 @@ const Point2D& Point2D::operator-= (const Point2D& p)
 
 	return (*this);
 }
-const Point2D& Point2D::operator= (const Point2D p)
+/*const Point2D& Point2D::operator= (const Point2D p)
 {
 	x = p.x;
 	y = p.y;
 
 	return (*this);
-}
+}*/
 bool Point2D::operator== (const Point2D& p) const
 {
 	return p.x == x && p.y == y;
