@@ -158,10 +158,6 @@ const String& String::operator+= (const char* str)
 		strcpy_s(string, tsize, tmp.getString());
 		strcat_s(string, tsize, str);
 	}
-	else
-	{
-
-	}
 	return (*this);
 }
 

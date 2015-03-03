@@ -55,9 +55,13 @@ int main()
 
 	strlen(p2);
 	strcpy(p, p2);*/
-
+	String *s = NULL;
 	String s1("hola");
-	s1.clear();
+
+	s1 == *s;
+
+	/*String s1("hola");
+	s1.clear();*/
 	
 	Log::log(s1.getString());
 } ///:~

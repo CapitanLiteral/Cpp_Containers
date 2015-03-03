@@ -541,6 +541,7 @@ namespace UnitTest1
 		TEST_METHOD(StringCapacity)
 		{
 			String s1("hola");
+			s1 = "h";
 
 			Assert::AreEqual(s1.capacity(), 5);
 		}
