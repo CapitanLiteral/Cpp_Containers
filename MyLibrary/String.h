@@ -1,7 +1,12 @@
+// String
+//
+// Class to strorage and operate with strings
+//
+
+
 #ifndef String_H
 #define String_H
 
-// Mai surt de rang! o si
 
 
 class String

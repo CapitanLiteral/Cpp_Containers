@@ -1,3 +1,8 @@
+// Point2D
+// 
+// Class to operate with points
+//
+
 #ifndef Point2D_H
 #define Point2D_H
 

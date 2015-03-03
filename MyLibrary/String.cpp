@@ -1,3 +1,6 @@
+// String
+// Implementation
+
 #include <wtypes.h>
 #include "String.h"
 #include "Log.h"
