@@ -472,15 +472,91 @@ namespace UnitTest1
 			String s1("hola");
 			s1 += "hola";
 
+			Assert::AreEqual(s1.length(), 8);
 			Assert::IsTrue(s1 == "holahola");			
+		}
+		TEST_METHOD(StringOperatorConcatChar02)
+		{
+			String s1("hola");
+			s1 += NULL;
+
+			Assert::AreEqual(s1.length(), 4);
+			Assert::IsTrue(s1 == "hola");
+		}
+		TEST_METHOD(StringOperatorConcatChar03)
+		{
+			String s1;
+			s1 += "hola";
+
+			Assert::AreEqual(s1.length(), 4);
+			Assert::IsTrue(s1 == "hola");
+		}
+		TEST_METHOD(StringOperatorConcatChar04)
+		{
+			String s1(NULL);
+			s1 += "hola";
+
+			Assert::AreEqual(s1.length(), 4);
+			Assert::IsTrue(s1 == "hola");
+		}
+		TEST_METHOD(StringOperatorConcatChar05) // No se com coi passar aquest test...
+		{
+			String s1(NULL);
+			s1 += NULL;
+			Assert::AreEqual(s1.length(), 0);
+			Assert::AreEqual(s1.getString(), "");
 		}
 		TEST_METHOD(StringOperatorConcatClass01)
 		{
 			String s1("hola");
 			String s2("hola");
 			s1 += s2;
-
+			Assert::AreEqual(s1.length(), 8);
 			Assert::IsTrue(s1 == "holahola");
 		}
+		TEST_METHOD(StringOperatorConcatClass02)
+		{
+			String s1;
+			String s2;
+			s1 += s2;
+			Assert::AreEqual(s1.length(), 0);
+			Assert::IsTrue(s1 == "");
+		}
+		TEST_METHOD(StringOperatorConcatClass03)
+		{
+			String s1;
+			String s2("hola");
+			s1 += s2;
+			Assert::AreEqual(s1.length(), 4);
+			Assert::IsTrue(s1 == "hola");
+		}
+		TEST_METHOD(StringOperatorConcatClass04)
+		{
+			String s1("hola");
+			String s2;
+			s1 += s2;
+			Assert::AreEqual(s1.length(), 4);
+			Assert::IsTrue(s1 == "hola");
+		}
+		TEST_METHOD(StringCapacity)
+		{
+			String s1("hola");
+
+			Assert::AreEqual(s1.capacity(), 5);
+		}
+		TEST_METHOD(StringLength)
+		{
+			String s1("hola");
+			
+			Assert::AreEqual(s1.length(), 4);
+		}
+		TEST_METHOD(StringClear)
+		{
+			String s1("hola");
+			s1.clear();
+			Assert::AreEqual(s1.length(), 0);
+			Assert::AreEqual(s1.getString(), "");
+		}
+		
 	};
 }
