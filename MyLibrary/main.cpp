@@ -4,6 +4,7 @@
 #include "Log.h"
 #include <stdio.h>
 #include "Swap.h"
+#include "List.h"
 
 /*void mes(int a)
 {
@@ -46,29 +47,12 @@ int& h() {
 
 int main() 
 {
-	/*int a = 0;
-	f(&a); // Ugly (but explicit)
-	g(a);  // Clean (but hidden)
+	List l;
+	l.add(5);
+	l.add(6);
 
-	Log::log("%d", a);
-
-
-	char* p;
-	char* p2 = "hola";
-
-	strlen(p2);
-	strcpy(p, p2);*/
-	Point2D a(0, 0);
-	Point2D b(1,1);
-	a = b;
-	Log::log("%f%f", a.x, a.y);
-	/*String s1("hola");
-	s1.clear();*/
-	int a1 = 5;
-	int b2 = 10;
-	Log::log("%d%d", a1, b2);
-	swap(a1, b2);
-	Log::log("%d%d", a1, b2);
+	Log::log("%d", l.start->val);
+	Log::log("%d", l.count());
 } ///:~
 
 

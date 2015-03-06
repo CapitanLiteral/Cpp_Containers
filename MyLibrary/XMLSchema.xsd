@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchema"
+    targetNamespace="http://tempuri.org/XMLSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+</xs:schema>
+<llistesEnllaçades>
+  <struct>
+     "
+        Struct node
+        {
+            int value;
+            node* next;
+        }
+     "
+  </struct>
+  <classe>
+    "
+        class List
+        {
+            node* start;
+        }
+    "
+  </classe>
+  <afegir>
+    "
+        void afegir(int n)
+        {
+            
+        }
+    "
+  </afegir>
+  <esborrar>
+    "
+        void esborrar()
+        {
+            
+        }
+    "
+  </esborrar>
+  
+  
+</llistesEnllaçades>
