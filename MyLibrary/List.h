@@ -13,12 +13,10 @@ class List
 		node* iterator;
 
 		List();
+		~List();
 
 		void add(int);
 		int count();
-
-
-
 };
 
 
@@ -58,4 +56,13 @@ int List::count()
 		i++;
 	}
 	return i;
+}
+List::~List()
+{
+	node* temp;
+	while (iterator) {
+		temp = iterator;
+		iterator = temp->next;
+		delete temp;
+	}
 }
