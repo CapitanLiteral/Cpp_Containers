@@ -14,7 +14,6 @@ String::String()
 
 String::String(const char* _string, ...)
 {
-	
 	if (_string != NULL && _string[0] != '\0')
 	{
 		static char buff1[4096];

@@ -14,6 +14,7 @@ class List
 
 		List();
 		~List();
+		void deleteNode(node* node);
 
 		void add(int);
 		int count();
@@ -60,9 +61,15 @@ int List::count()
 List::~List()
 {
 	node* temp;
+	iterator = start;
 	while (iterator) {
 		temp = iterator;
 		iterator = temp->next;
 		delete temp;
 	}
+}
+
+void List::deleteNode(node* node)
+{
+	// bla bla delete something;	
 }

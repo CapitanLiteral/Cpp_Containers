@@ -47,12 +47,14 @@ int& h() {
 
 int main() 
 {
-	List l;
-	l.add(5);
-	l.add(6);
+	List* l = new List();
+	l->add(5);
+	l->add(6);
 
-	Log::log("%d", l.start->val);
-	Log::log("%d", l.count());
+	Log::log("%d", l->start->val);
+	Log::log("%d", l->count());
+
+	l->~List();
 } ///:~
 
 
