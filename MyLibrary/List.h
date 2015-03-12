@@ -103,7 +103,11 @@ int List::count()
 }
 List::~List()
 {
+<<<<<<< HEAD
 	ListNode* temp;
+=======
+	node* temp;
+>>>>>>> origin/master
 	iterator = start;
 	while (iterator) {
 		temp = iterator;
@@ -112,7 +116,14 @@ List::~List()
 	}
 }
 
+<<<<<<< HEAD
 void List::deleteNode(ListNode* node)
 {
 	// bla bla delete something;	
 }*/
+=======
+void List::deleteNode(node* node)
+{
+	// bla bla delete something;	
+}
+>>>>>>> origin/master
