@@ -120,10 +120,8 @@ List::~List()
 void List::deleteNode(ListNode* node)
 {
 	// bla bla delete something;	
-}*/
-=======
+}
 void List::deleteNode(node* node)
 {
 	// bla bla delete something;	
-}
->>>>>>> origin/master
+}*/
