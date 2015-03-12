@@ -47,12 +47,16 @@ int& h() {
 
 int main() 
 {
-	List l;
-	l.add(5);
-	l.add(6);
+	String s("hola");
+	String a("adeu");
+	List<String>* l = new List<String>();
+	l->add(s);
+	l->add(a);
 
-	Log::log("%d", l.start->val);
-	Log::log("%d", l.count());
+	Log::log("%s", l->start->val.getString());
+	Log::log("%d", l->count());
+
+	l->~List();
 } ///:~
 
 

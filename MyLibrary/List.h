@@ -1,26 +1,70 @@
 #include <stdio.h>
+#include "ListNode.h"
 
 #pragma once
-typedef struct node {
-	int val;
-	node* next;
-};
 
-class List
+template <class T> class List
 {
 	public:
-		node* start;
-		node* iterator;
+		ListNode<T>* start;
+		ListNode<T>* iterator;
 
-		List();
-		~List();
+		List()
+		{
+			start = NULL;
+			iterator = NULL;
+		}
 
-		void add(int);
-		int count();
+		~List()
+		{
+			ListNode<T>* temp;
+			iterator = start;
+			while (iterator) {
+				temp = iterator;
+				iterator = temp->next;
+				delete temp;
+			}
+		}
+		void deleteNode(ListNode<T>* node)
+		{
+			// bla bla delete something;	
+		}
+
+		void add(T valor)
+		{
+			ListNode<T>* newNode = new ListNode<T>;
+			newNode->val = valor;
+			newNode->next = NULL;
+
+			if (start == NULL)
+			{
+				start = new ListNode<T>;
+				start = newNode;
+				iterator = start;
+			}
+			else
+			{
+				while (iterator->next != NULL)
+					iterator = iterator->next;
+				iterator->next = newNode;
+				iterator = start;
+			}
+		}
+
+		int count()
+		{
+			int i = 0;
+			while (iterator->next != NULL)
+			{
+				iterator = iterator->next;
+				i++;
+			}
+			return i;
+		}
 };
 
 
-List::List()
+/*List::List()
 {
 	start = NULL;
 	iterator = NULL;
@@ -28,13 +72,13 @@ List::List()
 
 void List::add(int valor)
 {
-	node* newNode = new node;
+	ListNode* newNode = new ListNode;
 	newNode->val = valor;
 	newNode->next = NULL;
 
 	if (start == NULL)
 	{
-		start = new node;
+		start = new ListNode;
 		start = newNode;
 		iterator = start;
 	}
@@ -59,10 +103,16 @@ int List::count()
 }
 List::~List()
 {
-	node* temp;
+	ListNode* temp;
+	iterator = start;
 	while (iterator) {
 		temp = iterator;
 		iterator = temp->next;
 		delete temp;
 	}
 }
+
+void List::deleteNode(ListNode* node)
+{
+	// bla bla delete something;	
+}*/
