@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "Swap.h"
 #include "List.h"
+#include "DList.h"
 
 /*void mes(int a)
 {
@@ -48,14 +49,28 @@ int& h() {
 int main() 
 {
 
-	List<int>* l = new List<int>();
+	List<int>* l1 = new List<int>();
+	l1->add(5);
+	l1->add(6);
+
+	Log::log("%d", l1->start->val);
+	Log::log("%d", l1->start->next);
+	Log::log("%d", l1->count());
+
+	l1->~List();
+
+
+	DList<int>* l = new DList<int>();
 	l->add(5);
 	l->add(6);
 
 	Log::log("%d", l->start->val);
+	Log::log("%d", l->start->next);
 	Log::log("%d", l->count());
 
-	l->~List();
+	l->~DList();
+
+
 } ///:~
 
 

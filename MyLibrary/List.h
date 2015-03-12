@@ -1,7 +1,10 @@
+#ifndef List_H
+#define List_H
+
 #include <stdio.h>
 #include "ListNode.h"
 
-#pragma once
+
 
 template <class T> class List
 {
@@ -63,6 +66,7 @@ template <class T> class List
 		}
 };
 
+#endif
 
 /*List::List()
 {
