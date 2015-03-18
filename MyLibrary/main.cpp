@@ -27,7 +27,7 @@ int main()
 */
 
 
-/*
+
 
 int* f(int* x) {
 	(*x)++;
@@ -59,7 +59,7 @@ int main()
 
 	l1->~List();
 
-
+	//TODO: asdfsad
 	DList<int>* l = new DList<int>();
 	l->add(5);
 	l->add(6);
@@ -71,10 +71,10 @@ int main()
 	l->~DList();
 
 
-} *////:~
+} ///:~
 
 
-
+/*
 #include <stdlib.h>
 #include "../SdlModules/Application.h"
 #include "../SdlModules/Globals.h"
@@ -154,4 +154,4 @@ int main(int argc, char ** argv)
 	delete App;
 	LOG("\nBye :)\n");
 	return main_return;
-}
+}*/
