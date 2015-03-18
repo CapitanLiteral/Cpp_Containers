@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyLibrary", "MyLibrary\MyLibrary.vcxproj", "{266B6B6B-5701-449A-A08F-CCACBA7790F2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\UnitTest1.vcxproj", "{E187FE7C-D72B-4633-952B-33E6988A3712}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SdlModules", "SdlModules\SdlModules.vcxproj", "{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E187FE7C-D72B-4633-952B-33E6988A3712}.Debug|Win32.Build.0 = Debug|Win32
 		{E187FE7C-D72B-4633-952B-33E6988A3712}.Release|Win32.ActiveCfg = Release|Win32
 		{E187FE7C-D72B-4633-952B-33E6988A3712}.Release|Win32.Build.0 = Release|Win32
+		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Debug|Win32.Build.0 = Debug|Win32
+		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Release|Win32.ActiveCfg = Release|Win32
+		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
