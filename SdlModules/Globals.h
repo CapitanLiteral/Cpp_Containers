@@ -1,10 +1,11 @@
-#pragma once
+#ifndef Globals_H
+#define Globals_H
+
 #include <windows.h>
 #include <stdio.h>
-
-#define LOG(format, ...)  //log(__FILE__, __LINE__, format, __VA_ARGS__);
-
-void log(const char file[], int line, const char* format, ...);
+//#include <stdarg.h>
+#include "../MyLibrary/Log.h"
+//#define LOG(format, ...)  //log(__FILE__, __LINE__, format, __VA_ARGS__);
 
 enum update_status
 {
@@ -14,8 +15,11 @@ enum update_status
 };
 
 // Configuration -----------
+#define LOG(format, ...) Log::print(__FILE__, __LINE__, format, __VA_ARGS__)
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 768
 #define FULLSCREEN 0
 
 #define FULLSCREEN_DESKTOP SDL_WINDOW_FULLSCREEN_DESKTOP 
+
+#endif

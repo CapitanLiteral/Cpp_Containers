@@ -2,7 +2,7 @@
 #define Log_H
 
 #include <Windows.h>
-//#include <stdarg.h>
+#include <stdarg.h>
 #include <wtypes.h>
 #include <stdio.h>
 

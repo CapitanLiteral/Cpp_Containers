@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Downloads\SDL_Game\SDL Game\Application.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
   </ItemGroup>
