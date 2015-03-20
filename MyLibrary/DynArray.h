@@ -68,7 +68,7 @@ public:
 		data[numElements] = val;
 		numElements++;
 	}
-	//TODO Pop:
+	//TODO Pop: elements -1 
 	TYPE pop()
 	{
 		// When the element is deleted, it is necessary to return a copy of that element.
