@@ -31,6 +31,7 @@ template <class T> class DList
 
 		void deleteNode(ListNode<T>* node)
 		{
+			//TODO Delete a node in DList
 			// bla bla delete something;	
 		}
 
