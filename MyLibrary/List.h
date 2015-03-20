@@ -30,6 +30,7 @@ template <class T> class List
 		}
 		void deleteNode(ListNode<T>* node)
 		{
+			//TODO Delete a node in the list
 			// bla bla delete something;	
 		}
 
@@ -41,7 +42,6 @@ template <class T> class List
 
 			if (start == NULL)
 			{
-				start = new ListNode<T>;
 				start = newNode;
 				iterator = start;
 			}

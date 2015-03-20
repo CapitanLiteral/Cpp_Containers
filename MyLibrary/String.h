@@ -18,10 +18,10 @@ class String
 
 		~String();
 
-		bool operator== (const char*);
-		bool operator== (const String&);
-		bool operator!= (const char*);
-		bool operator!= (const String&);
+		bool operator== (const char*) const;
+		bool operator== (const String&) const;
+		bool operator!= (const char*) const;
+		bool operator!= (const String&) const;
 
 		const String& operator= (const char*);
 		const String& operator= (const String&);
