@@ -113,14 +113,14 @@ const String& String::operator= (const String& str)
 	return (*this);
 }
 
-bool String::operator== (const char* str)
+bool String::operator== (const char* str) const
 {
 	if (str != NULL)
 		return strcmp(str, string) == 0;
 	else
 		return false;
 }
-bool String::operator== (const String& str)
+bool String::operator== (const String& str) const
 {
 	if (&str != NULL && str.getString() != NULL)
 		return strcmp(str.getString(), string) == 0;
@@ -129,12 +129,12 @@ bool String::operator== (const String& str)
 
 }
 
-bool String::operator!= (const char* str)
+bool String::operator!= (const char* str) const
 {
 	return !((*this) == str);
 }
 
-bool String::operator!= (const String& str)
+bool String::operator!= (const String& str) const
 {
 	return !((*this) == str);;
 }
