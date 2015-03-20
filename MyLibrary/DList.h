@@ -7,9 +7,9 @@ template <class T> class DList
 {
 	public:
 		ListNode<T>* start;
-		ListNode<T>* end;
+		ListNode<T>* end; // TODO Revisar que canvii el end tal com toca
 		ListNode<T>* iterator;
-		//  Bla.
+		//  TODO Const Correct.
 		
 		DList()
 		{
@@ -49,7 +49,7 @@ template <class T> class DList
 			}
 			else
 			{
-				ListNode<T>* prevIterator = new ListNode<T>();
+				ListNode<T>* prevIterator  // = new ListNode<T>();
 				while (iterator->next != NULL)
 				{
 					prevIterator = iterator;
@@ -72,6 +72,11 @@ template <class T> class DList
 				i++;
 			}
 			return i;
+		}
+
+		int insert()
+		{
+			//TODO Insert
 		}
 
 };

@@ -6,11 +6,11 @@
 
 
 
-template <class T> class List
+template <class TYPE> class List
 {
 	public:
-		ListNode<T>* start;
-		ListNode<T>* iterator;
+		ListNode<TYPE>* start;
+		ListNode<TYPE>* iterator;
 
 		List()
 		{
@@ -20,7 +20,7 @@ template <class T> class List
 
 		~List()
 		{
-			ListNode<T>* temp;
+			ListNode<TYPE>* temp;
 			iterator = start;
 			while (iterator) {
 				temp = iterator;
@@ -28,15 +28,15 @@ template <class T> class List
 				delete temp;
 			}
 		}
-		void deleteNode(ListNode<T>* node)
+		void deleteNode(ListNode<TYPE>* node)
 		{
 			//TODO Delete a node in the list
 			// bla bla delete something;	
 		}
 
-		void add(T valor)
+		void add(TYPE valor)
 		{
-			ListNode<T>* newNode = new ListNode<T>;
+			ListNode<TYPE>* newNode // = new ListNode<TYPE>;
 			newNode->val = valor;
 			newNode->next = NULL;
 
