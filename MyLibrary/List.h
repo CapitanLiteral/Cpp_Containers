@@ -8,9 +8,11 @@
 
 template <class TYPE> class List
 {
-	public:
+	private: 
 		ListNode<TYPE>* start;
-		ListNode<TYPE>* iterator;
+		
+	public:
+		
 
 		List()
 		{
@@ -20,7 +22,9 @@ template <class TYPE> class List
 
 		~List()
 		{
+			ListNode<TYPE>* iterator = start;
 			ListNode<TYPE>* temp;
+
 			iterator = start;
 			while (iterator) {
 				temp = iterator;
@@ -32,11 +36,30 @@ template <class TYPE> class List
 		{
 			//TODO Delete a node in the list
 			// bla bla delete something;	
+			if (node != NULL && start != NULL)
+			{
+				if (node != start)
+				{
+					ListNode<TYPE> *iterator = start;
+					while (iterator->next != node)
+					{
+						iterator = iterator->next;
+					}
+
+					iterator->next = node->next;
+				}
+				else
+					start = start->next;
+
+				delete node;
+			}
 		}
 
 		void add(TYPE valor)
 		{
-			ListNode<TYPE>* newNode // = new ListNode<TYPE>;
+
+			ListNode<TYPE>* iterator = start;
+			ListNode<TYPE>* newNode; // = new ListNode<TYPE>;
 			newNode->val = valor;
 			newNode->next = NULL;
 
@@ -56,7 +79,9 @@ template <class TYPE> class List
 
 		int count()
 		{
+			ListNode<TYPE>* iterator = start;
 			int i = 0;
+
 			while (iterator->next != NULL)
 			{
 				iterator = iterator->next;
