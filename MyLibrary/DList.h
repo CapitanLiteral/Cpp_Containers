@@ -3,24 +3,24 @@
 
 #include "ListNode.h"
 
-template <class T> class DList
+template <class TYPE> class DList
 {
-	public:
-		ListNode<T>* start;
-		ListNode<T>* end; // TODO Revisar que canvii el end tal com toca
-		ListNode<T>* iterator;
+	private:
+		ListNode<TYPE>* start;
+		//ListNode<TYPE>* end; // TODO Revisar que canvii el end tal com toca
+		ListNode<TYPE>* iterator;
 		//  TODO Const Correct.
-		
+	public:	
 		DList()
 		{
 			start = NULL;
-			end = NULL;
+			//end = NULL;
 			iterator = NULL;
 		}
 
 		~DList()
 		{
-			ListNode<T>* temp;
+			ListNode<TYPE>* temp;
 			iterator = start;
 			while (iterator) {
 				temp = iterator;
@@ -29,27 +29,46 @@ template <class T> class DList
 			}
 		}
 
-		void deleteNode(ListNode<T>* node)
+		void deleteNode(ListNode<TYPE>* node)
 		{
 			//TODO Delete a node in DList
-			// bla bla delete something;	
+			// bla bla delete something;
+			if (node != NULL && start != NULL)
+			{
+				if (node != start)
+				{
+					ListNode<TYPE> *iterator = start;
+					while (iterator->next != node)
+					{
+						iterator = iterator->next;
+					}
+
+					iterator->next = node->next;
+					node->next->previous = iterator;
+
+				}
+				else
+					start = start->next;
+
+				delete node;
+			}
 		}
 
-		void add(T valor)
+		void add(TYPE valor)
 		{
-			ListNode<T>* newNode = new ListNode<T>();
+			ListNode<TYPE>* newNode = new ListNode<TYPE>();
 			newNode->val = valor;
 			newNode->next = NULL;
 			newNode->previous = NULL;
 
 			if (start == NULL)
 			{
-				start = new ListNode<T>();
+				start = new ListNode<TYPE>();
 				start = newNode;				
 			}
 			else
 			{
-				ListNode<T>* prevIterator  // = new ListNode<T>();
+				ListNode<TYPE>* prevIterator  // = new ListNode<T>();
 				while (iterator->next != NULL)
 				{
 					prevIterator = iterator;
@@ -59,7 +78,7 @@ template <class T> class DList
 				iterator->previous = prevIterator; // Arreglar
 			}
 
-			end = iterator; // Start bla bla 
+			//end = iterator; // Start bla bla 
 			iterator = start;
 		}
 
@@ -74,10 +93,14 @@ template <class T> class DList
 			return i;
 		}
 
-		int insert()
+		int insert(int pos)
 		{
 			//TODO Insert
 		}
+
+		//TODO Get node at position
+		//TODO get position of node
+		//TODO delete node at position
 
 };
 
