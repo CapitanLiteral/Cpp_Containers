@@ -64,9 +64,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DList.cpp" />
-    <ClCompile Include="DynArray.cpp" />
-    <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="String.cpp" />
