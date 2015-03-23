@@ -1,6 +1,6 @@
 // Point2D
 
-
+/*
 #include "Point2D.h"
 #include "Math.h"
 
@@ -71,6 +71,7 @@ const Point2D& Point2D::operator-= (const Point2D& p)
 
 	return (*this);
 }*/
+/*
 bool Point2D::operator== (const Point2D& p) const
 {
 	return p.x == x && p.y == y;
@@ -78,4 +79,4 @@ bool Point2D::operator== (const Point2D& p) const
 bool Point2D::operator!= (const Point2D& p) const
 {
 	return p.x != x || p.y != y;
-}
+}*/

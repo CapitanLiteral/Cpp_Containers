@@ -6,6 +6,7 @@
 #include "Swap.h"
 #include "List.h"
 #include "DList.h"
+#include "DynArray.h"
 
 /*void mes(int a)
 {
@@ -48,6 +49,10 @@ int& h() {
 
 int main() 
 {
+	Point2D<int>();
+
+	DynArray<int>();
+
 
 	List<int>* l1 = new List<int>();
 	l1->add(5);

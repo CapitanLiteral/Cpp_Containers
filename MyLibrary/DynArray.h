@@ -1,4 +1,9 @@
 #pragma once
+
+#ifndef __DYNARRAY_H__
+#define __DYNARRAY_H__
+
+#include <assert.h>
 template <class TYPE>
 class DynArray
 {
@@ -46,21 +51,22 @@ public:
 		allocatedMemory = 0;
 		numElements = 0;
 	}
-	DynArray<TYPE>(unsigned int newSize)
+
+	DynArray<TYPE>(const unsigned int newSize)
 	{
 		data = NULL;
 		numElements = 0;
 		reallocate(newSize);
 	}
+
 	~DynArray<TYPE>() 
 	{ 
-		if (data != NULL) delete[] data; 
+		if (data != NULL) 
+			delete[] data; 
 	}
 
-	
-
 	//TODO Push_Back:
-	void pushBack(TYPE val)
+	void pushBack(const TYPE val)
 	{
 		if (numElements == allocatedMemory)
 			reallocate(allocatedMemory + 1);
@@ -69,22 +75,90 @@ public:
 		numElements++;
 	}
 	//TODO Pop: elements -1 
-	TYPE pop()
+	bool pop()
 	{
-		// When the element is deleted, it is necessary to return a copy of that element.
-		if (data != NULL && numElements != 0)
+		bool ret = false;
+		if (data != NULL && numElements > 0)
 		{
-			num_elements--;
-			TYPE ret = data[numElements];
-			return ret;
+			numElements--;
+			return !ret;
 		}
-		return -1;
+		return ret;
 	}
 	//TODO Clear:
 	void clear()
 	{
 		numElements = 0;
 	}
+
+
 	//TODO Insert:
+	void insert(const int newVal, const unsigned int pos)
+	{
+		if (pos <= numElements)
+		{
+			TYPE *tmp = new TYPE[allocatedMemory];
+
+			for (int i = 0; i < numElements; i++)
+			{
+				tmp[i] = data[i];
+			}
+
+			if (numElements == allocatedMemory)
+				reallocate(allocatedMemory + 1);
+
+			for (int i = 0; i < pos; i++)
+			{
+				data[i] = tmp[i];
+			}
+
+			data[pos] = newVal;
+
+			for (unsigned int i = pos; i < numElements; i++)
+			{
+				data[i + 1] = tmp[i];
+			}
+			numElements++;
+			delete[] tmp;
+		}
+	}
+
+
+	//TODO operator[] x2 
+	int& operator[] (const unsigned int i)
+	{
+		assert(i < numElements);
+		return data[i];
+	}
+	const int& operator[] (const unsigned int i) const
+	{
+		assert(i < numElements);
+		return data[i];
+	}
+
+	// Copied from ricard sample code and adapted for mine --- Start
+	TYPE* At(const unsigned int i)
+	{
+		TYPE* result = NULL;
+
+		if (i < numElements)
+			return result = &data[i];
+
+		return result;
+	}
+
+	const TYPE* At(const unsigned int i) const
+	{
+		TYPE* result = NULL;
+
+		if (i < num_elements)
+			return result = &data[i];
+
+		return result;
+	}
+	// Copied from ricard sample code and adapted for mine --- End
+
+
 };
 
+#endif
