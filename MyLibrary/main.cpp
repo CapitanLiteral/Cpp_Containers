@@ -40,7 +40,7 @@ int& g(int& x) {
 }
 
 int& h() {
-	int q;
+	//int q;
 	//!  return q;  // Error
 	static int x;
 	return x; // Safe, x lives outside this scope
@@ -52,9 +52,9 @@ int main()
 	List<int>* l1 = new List<int>();
 	l1->add(5);
 	l1->add(6);
-
-	Log::log("%d", l1->start->val);
-	Log::log("%d", l1->start->next);
+	
+	Log::log("%d", l1->getStart()->val);
+	Log::log("%d", l1->getStart()->next);
 	Log::log("%d", l1->count());
 
 	l1->~List();
@@ -64,8 +64,8 @@ int main()
 	l->add(5);
 	l->add(6);
 
-	Log::log("%d", l->start->val);
-	Log::log("%d", l->start->next);
+	Log::log("%d", l->getStart()->val);
+	Log::log("%d", l->getStart()->next);
 	Log::log("%d", l->count());
 
 	l->~DList();

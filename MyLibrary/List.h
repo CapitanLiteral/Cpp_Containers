@@ -17,7 +17,6 @@ template <class TYPE> class List
 		List()
 		{
 			start = NULL;
-			iterator = NULL;
 		}
 
 		~List()
@@ -55,11 +54,16 @@ template <class TYPE> class List
 			}
 		}
 
+		const ListNode<TYPE>* getStart()const
+		{
+			return start;
+		}
+
 		void add(TYPE valor)
 		{
 
 			ListNode<TYPE>* iterator = start;
-			ListNode<TYPE>* newNode; // = new ListNode<TYPE>;
+			ListNode<TYPE>* newNode = new ListNode<TYPE>;
 			newNode->val = valor;
 			newNode->next = NULL;
 

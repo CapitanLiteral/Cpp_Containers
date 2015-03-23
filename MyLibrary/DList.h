@@ -9,7 +9,7 @@ template <class TYPE> class DList
 		ListNode<TYPE>* start;
 		//ListNode<TYPE>* end; // TODO Revisar que canvii el end tal com toca
 		ListNode<TYPE>* iterator;
-		//  TODO Const Correct.
+		//  TODO Const Correct. DONE
 	public:	
 		DList()
 		{
@@ -29,9 +29,9 @@ template <class TYPE> class DList
 			}
 		}
 
-		void deleteNode(ListNode<TYPE>* node)
+		void deleteNode(const ListNode<TYPE>* node)
 		{
-			//TODO Delete a node in DList
+			//TODO Delete a node in DList DONE
 			// bla bla delete something;
 			if (node != NULL && start != NULL)
 			{
@@ -54,7 +54,12 @@ template <class TYPE> class DList
 			}
 		}
 
-		void add(TYPE valor)
+		const ListNode<TYPE>* getStart()const
+		{
+			return start;
+		}
+
+		void add(const TYPE valor)
 		{
 			ListNode<TYPE>* newNode = new ListNode<TYPE>();
 			newNode->val = valor;
@@ -68,7 +73,7 @@ template <class TYPE> class DList
 			}
 			else
 			{
-				ListNode<TYPE>* prevIterator  // = new ListNode<T>();
+				ListNode<TYPE>* prevIterator = new ListNode<TYPE>();
 				while (iterator->next != NULL)
 				{
 					prevIterator = iterator;
@@ -82,8 +87,9 @@ template <class TYPE> class DList
 			iterator = start;
 		}
 
-		int count()
+		int count() const
 		{
+			ListNode<TYPE>* iterator = start;
 			int i = 0;
 			while (iterator->next != NULL)
 			{
@@ -93,7 +99,7 @@ template <class TYPE> class DList
 			return i;
 		}
 
-		int insert(int pos)
+		int insert(const int pos)
 		{
 			//TODO Insert
 		}
