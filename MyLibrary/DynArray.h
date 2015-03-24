@@ -158,7 +158,31 @@ public:
 	}
 	// Copied from ricard sample code and adapted for mine --- End
 
+	const unsigned int getCapacity() const
+	{
+		return allocatedMemory;
+	}
 
+
+	const unsigned int removeWastedMemory()
+	{
+		TYPE* tmp = new TYPE[numElements];
+		unsigned int ret = 0;
+		
+		for (int i = 0; i < numElements; i++)
+		{
+			tmp[i] = data[i];
+		}
+
+		delete[] data;
+		ret = allocatedMemory - numElements;
+		allocatedMemory = numElements;
+		data = new TYPE[allocatedMemory];
+
+		data = tmp;
+
+		return ret;
+	}
 };
 
 #endif

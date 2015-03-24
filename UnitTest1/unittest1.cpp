@@ -3,8 +3,11 @@
 #include "..\MyLibrary\Log.h"
 #include "..\MyLibrary\String.h"
 #include "..\MyLibrary\String.cpp"
-#include "..\MyLibrary\Point2D.h"
-#include "..\MyLibrary\Point2D.cpp"
+/*#include "..\MyLibrary\Point2D.h"
+#include "..\MyLibrary\Point2D.cpp"*/
+#include "..\MyLibrary\Projectile.cpp"
+#include "..\MyLibrary\DList.h"
+#include "..\MyLibrary\DynArray.h"
 //#include "math.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -23,7 +26,7 @@ namespace UnitTest1
 			Assert::IsTrue(point.x == 0.0f && point.y == 0.0f);
 
 
-		}*/
+		}
 		TEST_METHOD(PointisZero)
 		{
 			Point2D point;
@@ -170,7 +173,7 @@ namespace UnitTest1
 			Point2D b(1, 3);
 			float d = a.distanceTo(b);
 			/*d = d * powf(10.0f, 4.0f);
-			d = truncf(d);*/
+			d = truncf(d);*//*
 			Assert::AreEqual(d, 4.1231f, 0.0001f);
 		}
 		
@@ -557,7 +560,107 @@ namespace UnitTest1
 			s1.clear();
 			Assert::AreEqual(s1.length(), 0);
 			Assert::AreEqual(s1.getString(), "");
+		}*/
+		
+
+		// Projectile ----------------------------------------
+		TEST_METHOD(Projectile_test)
+		{
+			Projectile p;
+			p.point->x = 10.0f;
+			p.point->y = 10.0f;
+
+			p.speed->x = 2.0f;
+			p.speed->y = 0.0f;
+			Point2D<float>* current = p.getCurrentPosition(3.0f);
+
+			Assert::AreEqual((float)16.0f, current->x, 0.00001f);
+			Assert::AreEqual((float)10.0f, current->y, 0.00001f);
 		}
 		
+		// ArrDyn remove wasted memory ----------------------------------------
+		TEST_METHOD(ArrDyn_optimizeMem)
+		{
+			DynArray<int> array(10);
+
+			array.pushBack(1);
+			array.pushBack(2);
+			array.pushBack(3);
+
+			Assert::AreEqual((unsigned int)10, array.getCapacity());
+
+			unsigned int wasted = array.removeWastedMemory();
+
+			Assert::AreEqual((unsigned int)3, array.getCapacity());
+			Assert::AreEqual((unsigned int)7, wasted);
+			Assert::AreEqual((int)1, array[0]);
+			Assert::AreEqual((int)2, array[1]);
+			Assert::AreEqual((int)3, array[2]);
+		}
+		
+		// P2List delete few nodes ----------------------------------------
+		TEST_METHOD(p2List_delNodes_mid)
+		{
+			DList<int> l;
+
+			l.add(1);
+			l.add(2);
+			l.add(3);
+			l.add(4);
+
+			l.delNodes(1, 2);
+
+			Assert::AreEqual((int)1, l.getStart()->val);
+			Assert::AreEqual((int)4, l.getEnd()->val);
+			Assert::AreEqual((unsigned int)2, l.count());
+		}
+		
+		// P2List delete few nodes ----------------------------------------
+		TEST_METHOD(p2List_delNodes_begin)
+		{
+			DList<int> l;
+
+			l.add(1);
+			l.add(2);
+			l.add(3);
+			l.add(4);
+
+			l.delNodes(0, 3);
+
+			Assert::AreEqual((int)4, l.getStart()->val);
+			Assert::AreEqual((int)4, l.getEnd()->val);
+			Assert::AreEqual((unsigned int)1, l.count());
+		}
+
+		// P2List delete few nodes ----------------------------------------
+		TEST_METHOD(p2List_delNodes_end)
+		{
+			DList<int> l;
+
+			l.add(1);
+			l.add(2);
+			l.add(3);
+			l.add(4);
+
+			l.delNodes(2, 100);
+
+			Assert::AreEqual((int)1, l.getStart()->val);
+			Assert::AreEqual((int)2, l.getEnd()->val);
+			Assert::AreEqual((unsigned int)2, l.count());
+		}
+		
+		// String prefix ----------------------------------------
+		TEST_METHOD(String_prefix)
+		{
+			String a("1234567890");
+			String b("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+			b = "hola";
+
+			a.prefix(b);
+			b.prefix("1234567890");
+
+			Assert::AreEqual(strcmp(a.getString(), "hola1234567890"), 0);
+			Assert::AreEqual(strcmp(b.getString(), "1234567890hola"), 0);
+		}
 	};
 }
