@@ -26,7 +26,9 @@ class String
 		const String& operator= (const char*);
 		const String& operator= (const String&);
 		const String& operator+= (const char*);
-		const String& operator+= (const String&);		
+		const String& operator+= (const String&);	
+		const String& prefix (const char*);
+		const String& prefix (const String&);
 
 		
 		const int capacity()const					{ return sizeof(string)+1; } // returns *string capacity not *string lenght

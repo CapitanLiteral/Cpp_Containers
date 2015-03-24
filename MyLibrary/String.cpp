@@ -177,6 +177,45 @@ const String& String::operator+= (const String& str)
 	return (*this);
 }
 
+const String& String::prefix(const char* str)
+{
+	if (str != NULL)
+	{
+		String tmp;
+		if (string != "")
+			tmp = string;
+		else
+			tmp = "";
+		int tsize = strlen(str) + tmp.length() + 1;
+		if (capacity() <= tsize)
+		{
+			delete[]string;
+			alloc(tsize);
+		}
+		strcpy_s(string, tsize, str);
+		strcat_s(string, tsize, tmp.getString());
+		
+	}
+	return (*this);
+}
+const String& String::prefix(const String& str)
+{
+	if (&str != NULL)
+	{
+		String tmp(string);
+		int tsize = str.length() + tmp.length() + 1;
+		if (capacity() <= tsize)
+		{
+			delete[]string;
+			alloc(tsize);
+		}		
+		strcpy_s(string, tsize, str.getString());
+		strcat_s(string, tsize, tmp.getString());
+	}
+	return (*this);
+}
+
+
 void String::alloc(const unsigned int _size)
 {
 	size = _size;
