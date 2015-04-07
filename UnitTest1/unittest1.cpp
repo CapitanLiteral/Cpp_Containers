@@ -5,6 +5,7 @@
 #include "..\MyLibrary\String.cpp"
 #include "..\MyLibrary\Point2D.h"
 #include "..\MyLibrary\Point2D.cpp"
+#include "..\MyLibrary\Stack.h"
 //#include "math.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -24,7 +25,7 @@ namespace UnitTest1
 
 
 		}*/
-		TEST_METHOD(PointisZero)
+		/*TEST_METHOD(PointisZero)
 		{
 			Point2D point;
 
@@ -171,11 +172,11 @@ namespace UnitTest1
 			float d = a.distanceTo(b);
 			/*d = d * powf(10.0f, 4.0f);
 			d = truncf(d);*/
-			Assert::AreEqual(d, 4.1231f, 0.0001f);
+			/*Assert::AreEqual(d, 4.1231f, 0.0001f);
 		}
 		
 		
-		
+		*/
 		//-------------------------------------------------------------------
 		//-------------------------------------------------------------------
 		//----------------------------- STRING ------------------------------
@@ -559,5 +560,28 @@ namespace UnitTest1
 			Assert::AreEqual(s1.getString(), "");
 		}
 		
+
+
+
+		/*TEST_METHOD(StackTest)
+		{
+			Stack<int> stk;
+
+			stk.pushBack(1);
+			stk.pushBack(2);
+			stk.pushBack(3);
+			stk.pop();
+			stk.pushBack(4);
+
+			Assert::AreEqual(stk.getLast(), 4);
+			stk.pop();
+			Assert::AreEqual(stk.getLast(), 2);
+			stk.pop();
+			Assert::AreEqual(stk.getLast(), 1);
+			stk.pop();
+
+		}*/
+
+
 	};
 }

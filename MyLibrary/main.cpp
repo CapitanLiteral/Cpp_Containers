@@ -7,6 +7,7 @@
 #include "List.h"
 #include "DList.h"
 #include "DynArray.h"
+#include "Stack.h"
 
 /*void mes(int a)
 {
@@ -75,6 +76,20 @@ int main()
 
 	l->~DList();
 
+	Stack<int> stk;
+	
+	stk.pushBack(1);
+	stk.pushBack(2);
+	stk.pushBack(3);
+	stk.pop();
+	stk.pushBack(4);
+
+	Log::log("Stk: %d", stk.getLast());
+	stk.pop();
+	Log::log("Stk: %d", stk.getLast());
+	stk.pop();
+	Log::log("Stk: %d", stk.getLast());
+	stk.pop();
 
 } ///:~
 

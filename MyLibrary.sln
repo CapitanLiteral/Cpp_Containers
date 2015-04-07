@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\Unit
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SdlModules", "SdlModules\SdlModules.vcxproj", "{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest2", "UnitTest2\UnitTest2.vcxproj", "{45C28DFC-1B66-428D-85CD-D5243C046783}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -27,6 +29,10 @@ Global
 		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Debug|Win32.Build.0 = Debug|Win32
 		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Release|Win32.ActiveCfg = Release|Win32
 		{2E2F7EF7-CB20-4713-A1C8-D29A271E1F71}.Release|Win32.Build.0 = Release|Win32
+		{45C28DFC-1B66-428D-85CD-D5243C046783}.Debug|Win32.ActiveCfg = Debug|Win32
+		{45C28DFC-1B66-428D-85CD-D5243C046783}.Debug|Win32.Build.0 = Debug|Win32
+		{45C28DFC-1B66-428D-85CD-D5243C046783}.Release|Win32.ActiveCfg = Release|Win32
+		{45C28DFC-1B66-428D-85CD-D5243C046783}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
