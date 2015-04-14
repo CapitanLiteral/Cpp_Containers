@@ -1,4 +1,5 @@
 #include "Dlist.h"
+#include "ListNode.h"
 
 
 #ifndef TreeNode_H
@@ -11,19 +12,26 @@ class TreeNode
 	public:
 		TYPE data;
 		TreeNode<TYPE>* parent;
-		DList<TreeNode*>* sons;
+		DList<TreeNode<TYPE>*> sons;
 
 	public:
 		TreeNode<TYPE>()
 		{
-			parent = new TreeNode<TYPE>();
-			sons = new DList<TYPE>();
+			parent = NULL;
 		}
 		~TreeNode<TYPE>()
 		{
 
 		}
-
+		void visitAll(DList<TYPE>& list)
+		{
+			list.add(data);
+			//ListNode<TYPE>* iterator = sons->getStart();+
+			for (int i = 0; i < sons.count(); i++)
+			{
+				sons.getAt(i)->val->visitAll(list);
+			}				
+		}
 
 
 

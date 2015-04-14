@@ -8,6 +8,8 @@
 #include "DList.h"
 #include "DynArray.h"
 #include "Stack.h"
+#include "Tree.h"
+#include "TreeNode.h"
 
 /*void mes(int a)
 {
@@ -50,46 +52,23 @@ int& h() {
 
 int main() 
 {
-	Point2D<int>();
+	Tree<char> t('F');
+	TreeNode<char>* b = t.add('B');
+	TreeNode<char>* g = t.add('G');
+	t.add('A', b);
+	TreeNode<char>* d = t.add('D', b);
+	t.add('C', d);
+	t.add('E', d);
 
-	DynArray<int>();
+	DList<char> l;
 
+	t.visitAllNodes(l);
 
-	List<int>* l1 = new List<int>();
-	l1->add(5);
-	l1->add(6);
-	
-	Log::log("%d", l1->getStart()->val);
-	Log::log("%d", l1->getStart()->next);
-	Log::log("%d", l1->count());
-
-	l1->~List();
-
-	//TODO: asdfsad
-	DList<int>* l = new DList<int>();
-	l->add(5);
-	l->add(6);
-
-	Log::log("%d", l->getStart()->val);
-	Log::log("%d", l->getStart()->next);
-	Log::log("%d", l->count());
-
-	l->~DList();
-
-	Stack<int> stk;
-	
-	stk.pushBack(1);
-	stk.pushBack(2);
-	stk.pushBack(3);
-	stk.pop();
-	stk.pushBack(4);
-
-	Log::log("Stk: %d", stk.getLast());
-	stk.pop();
-	Log::log("Stk: %d", stk.getLast());
-	stk.pop();
-	Log::log("Stk: %d", stk.getLast());
-	stk.pop();
+	for (int i = 0; i < l.count(); i++)
+	{
+		printf("%c\n", l.getAt(i));
+	}
+	getchar();
 
 } ///:~
 

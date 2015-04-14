@@ -106,6 +106,17 @@ template <class TYPE> class DList
 
 		//TODO Get node at position
 		//TODO get position of node
+		ListNode<TYPE>* getAt(int pos) const
+		{
+			ListNode<TYPE>* iterator = start;
+			int i = 0;
+			while (i != pos)
+			{
+				iterator = iterator->next;
+				i++;
+			}
+			return iterator;
+		}
 		//TODO delete node at position
 
 };

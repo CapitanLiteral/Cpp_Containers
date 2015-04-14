@@ -80,6 +80,7 @@
     <ClInclude Include="Log.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <ItemGroup>
     <Xsd Include="XMLSchema.xsd">
