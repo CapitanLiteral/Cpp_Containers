@@ -560,8 +560,24 @@ namespace UnitTest1
 			Assert::AreEqual(s1.getString(), "");
 		}
 		
+		TEST_METHOD(DynArrayOrder)
+		{
+			DynArray<int> a;
 
+			a.pushBack(4);
+			a.pushBack(2);
+			a.pushBack(3);
+			a.pushBack(1);
 
+			a.orderArray(true);
+
+			Assert::AreEqual(a[0], 1);
+			Assert::AreEqual(a[1], 2);
+			Assert::AreEqual(a[2], 3);
+			Assert::AreEqual(a[3], 4);
+			
+		}
+		
 
 		/*TEST_METHOD(StackTest)
 		{

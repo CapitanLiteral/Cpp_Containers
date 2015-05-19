@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "Math.h"
 #include "String.h"
 #include "Point2D.h"
@@ -10,6 +11,9 @@
 #include "Stack.h"
 #include "Tree.h"
 #include "TreeNode.h"
+#include <time.h>
+
+
 
 /*void mes(int a)
 {
@@ -50,29 +54,52 @@ int& h() {
 	return x; // Safe, x lives outside this scope
 }
 
+int fibonacciRecursivo(int a);
+
 int main() 
 {
-	Tree<char> t('F');
-	TreeNode<char>* b = t.add('B');
-	TreeNode<char>* g = t.add('G');
-	t.add('A', b);
-	TreeNode<char>* d = t.add('D', b);
-	t.add('C', d);
-	t.add('E', d);
+	srand(time(NULL));
 
-	DList<char> l;
+	/*DList<int> a;
+	a.add(100);
+	a.add(75);
+	a.add(35);
+	a.add(3);
 
-	t.visitAllNodes(l);
+	
 
-	for (int i = 0; i < l.count(); i++)
+	//a[2] = 5;
+	printf("%d\n",  a.orderList(true));
+	printf("%d", a[2]);*/
+
+	/*DynArray<int> a;
+
+	
+	a.pushBack(1);
+	a.pushBack(1);
+	a.pushBack(10);
+	a.pushBack(5);
+	a.pushBack(2);
+	a.pushBack(2);
+
+	//printf("%d :: ", a[2]);
+
+	a.flip();
+	for (int i = 0; i < 6; i++)
 	{
-		printf("%c\n", l.getAt(i));
-	}
-	getchar();
+		printf("%d :: ", a[i]);
+	}*/
+	
+	printf("%d", fibonacciRecursivo(3));
 
+	getchar();
 } ///:~
 
+int fibonacciRecursivo(int a)
+{
 
+	return (a != 0 ? fibonacciRecursivo(a - 1) + fibonacciRecursivo(a - 1) : 0);
+}
 /*
 #include <stdlib.h>
 #include "../SdlModules/Application.h"

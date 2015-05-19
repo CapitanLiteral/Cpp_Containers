@@ -4,6 +4,7 @@
 #define __DYNARRAY_H__
 
 #include <assert.h>
+#include "Swap.h"
 template <class TYPE>
 class DynArray
 {
@@ -157,6 +158,121 @@ public:
 		return result;
 	}
 	// Copied from ricard sample code and adapted for mine --- End
+
+	bool orderArray(bool way = true)
+	{
+
+		bool ordered = true;
+
+		for (int j = 0; j < numElements - 1; j++)
+		{
+			for (int i = 0; i < numElements - 1; i++)
+			{
+				if (way)
+				{
+					if (data[i] > data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						ordered = false;
+					}
+
+				}
+				else
+				{
+					if (data[i] < data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						ordered = false;
+					}
+
+				}
+			}
+			if (ordered)
+				return true;
+		}
+		return false;
+	}
+	int orderArrayOptimized(bool way = true)
+	{
+		bool ordered = false;
+		int iterations = 0;
+		int groups = 2;
+		int elements = (numElements - 1) / groups;
+		int j = 0;
+		while (/*!ordered*/j < elements-1)
+		{
+			ordered = true;
+			for (int i = 0; i < elements; i++)
+			{
+				if (way)
+				{
+					if (data[i] > data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						ordered = false;
+					}
+					if (data[elements + i] > data[elements + i + 1])
+					{
+						swap(data[elements + i], data[elements + i + 1]);
+						ordered = false;
+					}
+				}
+				//////////////////////////////////////////////
+				/*else
+				{
+					if (data[i] < data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						ordered = false;
+					}
+				}*/
+				iterations++;
+			}
+			j++;
+		}
+		orderArrayOptimized0(true);
+		return iterations /*+ orderArrayOptimized0(true)*/;
+	}
+
+	int orderArrayOptimized0(bool way = true)
+	{
+		bool ordered = false;
+		int iterations = 0;
+		while (!ordered)
+		{
+			ordered = true;
+			for (int i = 0; i < numElements - 1; i++)
+			{
+				if (way)
+				{
+					if (data[i] > data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						ordered = false;
+					}
+
+				}
+				else
+				{
+					if (data[i] < data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						ordered = false;
+					}
+
+				}
+
+			}
+			iterations++;
+		}
+		return iterations;
+	}
+
+	void flip()
+	{
+		for (int i = 0; i < numElements / 2; i++)
+			swap(data[i], data[numElements - 1 - i]);
+	}
 
 
 };
