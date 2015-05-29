@@ -125,6 +125,23 @@ public:
 	}
 
 
+	bool insert(const DynArray<TYPE>& newArray, int position)
+	{
+		if (position > numElements)
+			return false;
+
+		if (numElements+newArray.numElements > allocatedMemory)
+			reallocate(newArray.numElements + numElements);
+
+		for (int i = position; i < position + newArray.numElements; ++i)
+		{
+			data[i + newArray.numElements] = data[i];
+			data[i] = newArray[i - position];
+			++numElements;
+		}
+		return true;
+	}
+
 	//TODO operator[] x2 
 	int& operator[] (const unsigned int i)
 	{

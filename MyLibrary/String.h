@@ -28,6 +28,9 @@ class String
 		const String& operator+= (const char*);
 		const String& operator+= (const String&);		
 
+		int findWord(const char*);
+		int findWord(const String&);
+		
 		
 		const int capacity()const					{ return sizeof(string)+1; } // returns *string capacity not *string lenght
 		void clear()								{ string[0] = '\0'; size = 1; }

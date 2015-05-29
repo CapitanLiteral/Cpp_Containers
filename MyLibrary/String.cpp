@@ -183,6 +183,19 @@ void String::alloc(const unsigned int _size)
 	string = new char[_size];
 }
 
+
+int String::findWord(const char*)
+{
+
+}
+int String::findWord(const String&)
+{
+
+}
+
+
+
+
 /*
 const String& String::operator= (const String& str)
 {
